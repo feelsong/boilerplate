@@ -1,4 +1,4 @@
-contract DemoP2PKH {
+contract P2PKH {
     Ripemd160 pubKeyHash;
 
     constructor(Ripemd160 pubKeyHash) {

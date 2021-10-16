@@ -12,12 +12,12 @@ const pkh = bsv.crypto.Hash.sha256ripemd160(publicKey.toBuffer())
 const privateKey2 = new bsv.PrivateKey.fromRandom('testnet')
 const tx = newTx();
 
-describe('Test sCrypt contract DemoP2PKH In Javascript', () => {
+describe('Test sCrypt contract P2PKH In Javascript', () => {
   let demo, sig, context
 
   before(() => {
-    const DemoP2PKH = buildContractClass(compileContract('p2pkh.scrypt'))
-    demo = new DemoP2PKH(new Ripemd160(toHex(pkh)))
+    const P2PKH = buildContractClass(compileContract('p2pkh.scrypt'))
+    demo = new P2PKH(new Ripemd160(toHex(pkh)))
     // any contract that includes checkSig() must be verified in a given context
     context = { tx, inputIndex, inputSatoshis }
   });

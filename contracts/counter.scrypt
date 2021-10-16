@@ -5,7 +5,7 @@ contract Counter {
         require(Tx.checkPreimage(txPreimage));
 
         // deserialize state (i.e., counter value)
-        bytes scriptCode = Util.scriptCode(txPreimage);
+        bytes scriptCode = SigHash.scriptCode(txPreimage);
         int scriptLen = len(scriptCode);
         // counter is at the end
         int counter = unpack(scriptCode[scriptLen - Util.DataLen :]);
@@ -19,6 +19,6 @@ contract Counter {
         bytes output = Util.buildOutput(outputScript, amount);
         // ensure output is expected: amount is same with specified
         // also output script is the same with scriptCode except counter incremented
-        require(hash256(output) == Util.hashOutputs(txPreimage));
+        require(hash256(output) == SigHash.hashOutputs(txPreimage));
     }
 }

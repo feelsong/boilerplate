@@ -12,15 +12,15 @@ const publicKey = privateKey.publicKey
 const pkh = bsv.crypto.Hash.sha256ripemd160(publicKey.toBuffer())
 const privateKey2 = new bsv.PrivateKey.fromRandom('testnet')
 
-describe('Test sCrypt contract DemoP2PKH In Typescript', () => {
+describe('Test sCrypt contract P2PKH In Typescript', () => {
   let demo: any;
   let sig: any;
   let result: VerifyResult
   let tx:any = newTx();
 
   before(() => {
-    const DemoP2PKH = buildContractClass(compileContract('p2pkh.scrypt'))
-    demo = new DemoP2PKH(new Ripemd160(toHex(pkh)))
+    const P2PKH = buildContractClass(compileContract('p2pkh.scrypt'))
+    demo = new P2PKH(new Ripemd160(toHex(pkh)))
     demo.txContext = {
       tx,
       inputIndex,

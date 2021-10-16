@@ -26,8 +26,8 @@ library Util {
     }
 
     // build P2PKH script from public key hash
-    static function buildPublicKeyHashScript(Ripemd160 pubKeyHash) : bytes {
-        return OpCode.OP_DUP + OpCode.OP_HASH160 + pack(Util.PubKeyHashLen /* "OP_PUSHDATA0" */) + pubKeyHash + OpCode.OP_EQUALVERIFY + OpCode.OP_CHECKSIG;
+    static function buildPublicKeyHashScript(PubKeyHash pubKeyHash) : bytes {
+        return OpCode.OP_DUP + OpCode.OP_HASH160 + pack(PubKeyHashLen /* "OP_PUSHDATA0" */) + pubKeyHash + OpCode.OP_EQUALVERIFY + OpCode.OP_CHECKSIG;
     }
 
     // build false OPRETURN script from data payload
